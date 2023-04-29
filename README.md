@@ -1,4 +1,4 @@
-<div align="center"> ![Logo de la universidad](/images/Logo.png) </div align="center">
+<div align="center"> <image src="/images/Logo.png" alt="Logo de la Universidad"> </div align="center">
 
 **Mario Fernando Castañeda Perez - 7690-20-145**
 
