@@ -12,10 +12,10 @@
 A continuación podra encontrar una aplicacion que nos ayudara a guardar informacion en una estructura de datos eficiente, dinamica, que solo usara el espacio que se le este solicitando y rapida al momento de buscar cualquier dato, debido a la forma en la que se programó, que es una matriz ortogonal dinamica.
 
 Al iniciar la aplicacion, desplegará la siguiente ventana: 
-<div align="center"> <image src="/images/imagen1.jepg" alt="imagen de la aplicacion"> </div align="center">
+<div align="center"> <image src="/images/imagen1.jpeg" alt="imagen de la aplicacion"> </div align="center">
 
 Seleccionamos la primera opcion para ingresar datos
-<div align="center"> <image src="/images/imagen2.jepg" alt="imagen de la aplicacion"> </div align="center">
+<div align="center"> <image src="/images/imagen2.jpeg" alt="imagen de la aplicacion"> </div align="center">
 
 Luego de ingresar algunos datos de prueba, vamos a ingresar 3 datos de carros para probar la aplicacion.
 <div align="center"> <image src="/images/imagen3.jpg" alt="imagen de la aplicacion"> </div align="center">
