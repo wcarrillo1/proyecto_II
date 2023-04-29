@@ -1,57 +1,57 @@
 public class OctogonalMatrix {
 
-    private Node<Vehiculo> centro; // nodo central de la matriz
+    private Nodo<Vehiculo> centro; // nodo central de la matriz
 
     // Constructor que inicializa la matriz con un nodo central
     public OctogonalMatrix() {
-        centro = new Node<>(null);
+        centro = new Nodo<>(null);
     }
 
     // Método que inserta un vehículo en la matriz
     public void insert(Vehiculo vehiculo) {
-        Node<Vehiculo> node = new Node<>(vehiculo);
+        Nodo<Vehiculo> Nodo = new Nodo<>(vehiculo);
 
         // Enlazar el nuevo nodo con los nodos vecinos
-        node.setDerecha(centro.getDerecha());
-        centro.getDerecha().setIzquierda(node);
-        centro.setDerecha(node);
-        node.setIzquierda(centro);
+        Nodo.setDer(centro.getDer());
+        centro.getDer().setIzq(Nodo);
+        centro.setDer(Nodo);
+        Nodo.setIzq(centro);
 
-        node.setAbajo(centro.getAbajo().getDerecha());
-        centro.getAbajo().getDerecha().setArriba(node);
-        centro.setAbajo(node);
-        node.setArriba(centro);
+        Nodo.setAbajo(centro.getAbajo().getDer());
+        centro.getAbajo().getDer().setArriba(Nodo);
+        centro.setAbajo(Nodo);
+        Nodo.setArriba(centro);
     }
 
     public Vehiculo search(String placa) {
-        Node<Vehiculo> Actual = centro.getDerecha();
+        Nodo<Vehiculo> Actual = centro.getDer();
         while (Actual != centro) {
-            if (Actual.getData() != null && Actual.getData().getPlaca().equals(placa)) {
-                return Actual.getData();
+            if (Actual.getdato() != null && Actual.getdato().getPlaca().equals(placa)) {
+                return Actual.getdato();
             }
-            Actual = Actual.getDerecha();
+            Actual = Actual.getDer();
         }
 
-        Actual = centro.getAbajo().getDerecha();
+        Actual = centro.getAbajo().getDer();
         while (Actual != centro) {
-            if (Actual.getData() != null && Actual.getData().getPlaca().equals(placa)) {
-                return Actual.getData();
+            if (Actual.getdato() != null && Actual.getdato().getPlaca().equals(placa)) {
+                return Actual.getdato();
             }
             Actual = Actual.getAbajo();
         }
 
-        Actual = centro.getIzquierda().getAbajo();
+        Actual = centro.getIzq().getAbajo();
         while (Actual != centro) {
-            if (Actual.getData() != null && Actual.getData().getPlaca().equals(placa)) {
-                return Actual.getData();
+            if (Actual.getdato() != null && Actual.getdato().getPlaca().equals(placa)) {
+                return Actual.getdato();
             }
-            Actual = Actual.getIzquierda();
+            Actual = Actual.getIzq();
         }
 
-        Actual = centro.getArriba().getIzquierda();
+        Actual = centro.getArriba().getIzq();
         while (Actual != centro) {
-            if (Actual.getData() != null && Actual.getData().getPlaca().equals(placa)) {
-                return Actual.getData();
+            if (Actual.getdato() != null && Actual.getdato().getPlaca().equals(placa)) {
+                return Actual.getdato();
             }
             Actual = Actual.getArriba();
         }
@@ -62,53 +62,53 @@ public class OctogonalMatrix {
 
     // Método que elimina un vehículo de la matriz por su placa
     public boolean delete(String placa) {
-        Node<Vehiculo> current = centro.getDerecha();
+        Nodo<Vehiculo> current = centro.getDer();
         while (current != centro) {
-            if (current.getData() != null && current.getData().getPlaca().equals(placa)) {
-                current.getIzquierda().setDerecha(current.getDerecha());
-                current.getDerecha().setIzquierda(current.getIzquierda());
+            if (current.getdato() != null && current.getdato().getPlaca().equals(placa)) {
+                current.getIzq().setDer(current.getDer());
+                current.getDer().setIzq(current.getIzq());
                 current.getArriba().setAbajo(current.getAbajo());
                 current.getAbajo().setArriba(current.getArriba());
-                current.setData(null);
+                current.setdato(null);
                 return true;
             }
-            current = current.getDerecha();
+            current = current.getDer();
         }
 
-        current = centro.getAbajo().getDerecha();
+        current = centro.getAbajo().getDer();
         while (current != centro) {
-            if (current.getData() != null && current.getData().getPlaca().equals(placa)) {
-                current.getIzquierda().setDerecha(current.getDerecha());
-                current.getDerecha().setIzquierda(current.getIzquierda());
+            if (current.getdato() != null && current.getdato().getPlaca().equals(placa)) {
+                current.getIzq().setDer(current.getDer());
+                current.getDer().setIzq(current.getIzq());
                 current.getArriba().setAbajo(current.getAbajo());
                 current.getAbajo().setArriba(current.getArriba());
-                current.setData(null);
+                current.setdato(null);
                 return true;
             }
             current = current.getAbajo();
         }
 
-        current = centro.getIzquierda().getAbajo();
+        current = centro.getIzq().getAbajo();
         while (current != centro) {
-            if (current.getData() != null && current.getData().getPlaca().equals(placa)) {
-                current.getIzquierda().setDerecha(current.getDerecha());
-                current.getDerecha().setIzquierda(current.getIzquierda());
+            if (current.getdato() != null && current.getdato().getPlaca().equals(placa)) {
+                current.getIzq().setDer(current.getDer());
+                current.getDer().setIzq(current.getIzq());
                 current.getArriba().setAbajo(current.getAbajo());
                 current.getAbajo().setArriba(current.getArriba());
-                current.setData(null);
+                current.setdato(null);
                 return true;
             }
-            current = current.getIzquierda();
+            current = current.getIzq();
         }
 
-        current = centro.getArriba().getIzquierda();
+        current = centro.getArriba().getIzq();
         while (current != centro) {
-            if (current.getData() != null && current.getData().getPlaca().equals(placa)) {
-                current.getIzquierda().setDerecha(current.getDerecha());
-                current.getDerecha().setIzquierda(current.getIzquierda());
+            if (current.getdato() != null && current.getdato().getPlaca().equals(placa)) {
+                current.getIzq().setDer(current.getDer());
+                current.getDer().setIzq(current.getIzq());
                 current.getArriba().setAbajo(current.getAbajo());
                 current.getAbajo().setArriba(current.getArriba());
-                current.setData(null);
+                current.setdato(null);
                 return true;
             }
             current = current.getArriba();
@@ -117,33 +117,33 @@ public class OctogonalMatrix {
     }
     //Metodo que lista
     public void list() {
-        Node<Vehiculo> Actual = centro.getDerecha();
+        Nodo<Vehiculo> Actual = centro.getDer();
         while (Actual != centro) {
-            if (Actual.getData() != null) {
-                System.out.println(Actual.getData().getPlaca() + " " + Actual.getData().getColor() +" " + Actual.getData().getLinea() + " " + Actual.getData().getModelo() + " " + Actual.getData().getPropietario());
+            if (Actual.getdato() != null) {
+                System.out.println(Actual.getdato().getPlaca() + " " + Actual.getdato().getColor() +" " + Actual.getdato().getLinea() + " " + Actual.getdato().getModelo() + " " + Actual.getdato().getPropietario());
             }
-            Actual = Actual.getDerecha();
+            Actual = Actual.getDer();
         }
-        Actual = centro.getAbajo().getDerecha();
+        Actual = centro.getAbajo().getDer();
         while (Actual == centro) {
-            if (Actual.getData() != null) {
-                System.out.println(Actual.getData().getPlaca() + " " + Actual.getData().getColor() + " " + Actual.getData().getLinea() + " " + Actual.getData().getModelo() + " " + Actual.getData().getPropietario());
+            if (Actual.getdato() != null) {
+                System.out.println(Actual.getdato().getPlaca() + " " + Actual.getdato().getColor() + " " + Actual.getdato().getLinea() + " " + Actual.getdato().getModelo() + " " + Actual.getdato().getPropietario());
             }
             Actual = Actual.getAbajo();
         }
 
-        Actual = centro.getIzquierda().getAbajo();
+        Actual = centro.getIzq().getAbajo();
         while (Actual == centro) {
-            if (Actual.getData() != null) {
-                System.out.println(Actual.getData().getPlaca() + " " + Actual.getData().getColor() + " " + Actual.getData().getLinea() + " " + Actual.getData().getModelo() + " " + Actual.getData().getPropietario());
+            if (Actual.getdato() != null) {
+                System.out.println(Actual.getdato().getPlaca() + " " + Actual.getdato().getColor() + " " + Actual.getdato().getLinea() + " " + Actual.getdato().getModelo() + " " + Actual.getdato().getPropietario());
             }
-            Actual = Actual.getIzquierda();
+            Actual = Actual.getIzq();
         }
 
-        Actual = centro.getArriba().getIzquierda();
+        Actual = centro.getArriba().getIzq();
         while (Actual == centro) {
-            if (Actual.getData() != null) {
-                System.out.println(Actual.getData().getPlaca() + " " + Actual.getData().getColor() + " " + Actual.getData().getLinea() + " " + Actual.getData().getModelo() + " " + Actual.getData().getPropietario());
+            if (Actual.getdato() != null) {
+                System.out.println(Actual.getdato().getPlaca() + " " + Actual.getdato().getColor() + " " + Actual.getdato().getLinea() + " " + Actual.getdato().getModelo() + " " + Actual.getdato().getPropietario());
             }
             Actual = Actual.getArriba();
         }

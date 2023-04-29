@@ -14,7 +14,6 @@ public class Vehiculo {
     }
 
     public Vehiculo(){
-
     }
 
     public String getPlaca() {
